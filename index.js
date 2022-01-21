@@ -30,14 +30,12 @@ myFunction();
 For example, `summation(4)` should return 10 because 1+2+3+4 is 10. Note, you may use a for loop for this function if you wish */
 
 function summation(num) {
-  let counter = 0
-  for (let i = 0; i < num+1; i++){
+  let counter = 0;
+  for (let i = 0; i < num + 1; i++){
     counter = counter + i;
-  }
-  return counter
-}
- 
-console.log(summation(4));
+  };
+  return counter;
+};
 
 // 🦁🦁🦁 Topic 2: ADVANCED Array Methods 🦁🦁🦁
 // Given this zoo data from around the United States, follow the instructions below. Use the specific array methods in the requests below to solve the problems.
@@ -61,9 +59,11 @@ const zooAnimals = [
   displayNames will be an array of strings, and each string should follow this pattern: "name: {name}, scientific: {scientific name}"
   */
 
-  function animalNames(/*Your Code Here*/){
-    /*Your Code Here*/
-  }
+  function animalNames(){
+    const displayNames = [];
+    zooAnimals.forEach(item => displayNames.push(`name: ${item.animal_name}, scientific: ${item.scientific_name}`));
+    return displayNames;
+  };
   
 
   /* 🦁🦁🦁 Request 2: .map() 🦁🦁🦁
@@ -72,9 +72,10 @@ const zooAnimals = [
   For example: ['jackal, asiatic', .....]
   */
 
-  function lowerCaseNames(/*Your Code Here*/){
-    /*Your Code Here*/
-  }
+  function lowerCaseNames(){
+    const lowCaseNames = zooAnimals.map(item => item.animal_name.toLowerCase());
+    return lowCaseNames;
+  };
   
   
   /* 🦁🦁🦁 Request 3: .filter() 🦁🦁🦁
@@ -82,9 +83,10 @@ const zooAnimals = [
   Using lowPopulationAnimals use .filter() to create a new array of objects which contains only the animals with a population of less than 5.
   */
 
-  function lowPopulationAnimals(/*Your Code Here*/){
-    /*Your Code Here*/
-  }
+  function lowPopulationAnimals(){
+    const lowPopulations = zooAnimals.filter(item => item.population < 5);
+    return lowPopulations;
+  };
   
 
   /* 🦁🦁🦁 Request 4: .reduce() 🦁🦁🦁
@@ -93,10 +95,10 @@ const zooAnimals = [
   Remember the reduce method takes two arguments: a callback (which itself takes two args - the accumulator and the item), and an initial value for the count.
   */
 
-  function USApop(/*Your Code Here*/){
-    /*Your Code Here*/
-  }
-  
+  function USApop(){
+    const nationalPop = zooAnimals.reduce((acc, item) => acc + item.population,0);
+    return nationalPop;
+  };
   
   // 🦁🦁🦁 Callbacks 🦁🦁🦁  
   /* 🦁🦁🦁 Step 1: Create a higher-order function 🦁🦁🦁
